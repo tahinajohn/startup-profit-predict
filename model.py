@@ -14,3 +14,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
+
+def predict(a, b, c):
+    return regressor.predict([[float(a), float(b), float(c)]])
