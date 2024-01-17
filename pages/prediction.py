@@ -1,10 +1,8 @@
 import streamlit as st
-from fire_state import create_store, form_update, get_state, set_state
+from fire_state import create_store, get_state, set_state
 from model import predict
-import emoji
 
 slot = "Prediction"
-emoji_dollar = emoji.emojize(":heavy_dollar_sign:")
 
 key1 = create_store(slot, [
     ("RD", 0),
@@ -14,6 +12,7 @@ key1 = create_store(slot, [
 ])
 
 st.markdown("# Prediction :bar_chart: 💵")
+st.sidebar.markdown("# Prediction 💵")
 
 rd_spend = st.number_input("R&D spend (en $) : ", value=get_state(slot, 'RD'))
 set_state(slot,("RD", rd_spend))
@@ -27,7 +26,7 @@ set_state(slot,("Market", market_spend))
 def predict_value():
     profit = predict(rd_spend, admin_spend, market_spend)
     formated_ans = "{:.2f}".format(profit[0])
-    set_state(slot, ("Answer", f"<h2 style='text-align: center;'> Par rapport à vos dépenses, vous devez faire un profit de : {formated_ans} {emoji_dollar}</h2>"))
+    set_state(slot, ("Answer", f"<h2 style='text-align: center;'> Par rapport à vos dépenses, vous devez faire un profit de : {formated_ans} 💲</h2>"))
 
 # if st.button("Prédire profit"):
 #     profit = predict(rd_spend, admin_spend, market_spend)
