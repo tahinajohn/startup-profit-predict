@@ -1,4 +1,6 @@
-# Installation
+# Startup profit predict
+Découvrez le potentiel de croissance de votre startup. Cette application analyse vos dépenses en recherche et développement, administration et marketing pour prédire votre futur profit
+
 # Install streamlit
 pip install streamlit
 
